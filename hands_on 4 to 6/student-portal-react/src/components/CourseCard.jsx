@@ -1,17 +1,36 @@
-function CourseCard({ id, name, code, credits, grade, onEnroll }) {
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { enroll } from "../redux/enrollmentSlice";
+
+function CourseCard({ id, name, code, credits, grade }) {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  function handleEnroll() {
+    dispatch(
+      enroll({
+        id,
+        name,
+        code,
+        credits,
+        grade,
+      })
+    );
+
+    navigate("/profile");
+  }
+
   return (
     <div className="course-card">
-      <h3>{name}</h3>
+      <Link to={`/courses/${id}`}>
+        <h3>{name}</h3>
+      </Link>
 
-      <p><strong>Course Code:</strong> {code}</p>
+      <p>Code: {code}</p>
+      <p>Credits: {credits}</p>
+      <p>Grade: {grade}</p>
 
-      <p><strong>Credits:</strong> {credits}</p>
-
-      <p><strong>Grade:</strong> {grade}</p>
-
-      <button onClick={() => onEnroll(id)}>
-        Enroll
-      </button>
+      <button onClick={handleEnroll}>Enroll</button>
     </div>
   );
 }

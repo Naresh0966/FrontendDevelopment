@@ -1,21 +1,22 @@
-function Header({ siteName, enrolledCount }) {
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+function Header() {
+  const enrolledCourses = useSelector(
+    (state) => state.enrollment.enrolledCourses
+  );
+
   return (
     <header className="header">
-      <div>
-        <h1>{siteName}</h1>
-      </div>
+      <h1>Student Portal</h1>
 
       <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Courses</a></li>
-          <li><a href="#">Profile</a></li>
-        </ul>
+        <Link to="/">Home</Link>{" | "}
+        <Link to="/courses">Courses</Link>{" | "}
+        <Link to="/profile">Profile</Link>
       </nav>
 
-      <div className="enrolled">
-        Enrolled Courses: {enrolledCount}
-      </div>
+      <p>Enrolled Courses: {enrolledCourses.length}</p>
     </header>
   );
 }
