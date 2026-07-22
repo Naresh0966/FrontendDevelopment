@@ -1,0 +1,15 @@
+input {
+  width: 300px;
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.loading {
+  color: blue;
+  font-weight: bold;
+}
+
+.no-courses {
+  color: red;
+  font-weight: bold;
+}

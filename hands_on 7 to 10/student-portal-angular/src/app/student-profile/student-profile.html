@@ -1,0 +1,64 @@
+<h2>Student Profile</h2>
+
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+  <label>Name:</label><br>
+  <input type="text" formControlName="name">
+
+  <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched">
+    <small>Name is required.</small>
+  </div>
+
+  <br>
+
+  <label>Email:</label><br>
+  <input type="email" formControlName="email">
+
+  <div *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+
+    <small *ngIf="studentForm.get('email')?.errors?.['required']">
+      Email is required.
+    </small>
+
+    <small *ngIf="studentForm.get('email')?.errors?.['email']">
+      Enter a valid email.
+    </small>
+
+  </div>
+
+  <br>
+
+  <label>Department:</label><br>
+  <input type="text" formControlName="department">
+
+  <div *ngIf="studentForm.get('department')?.invalid && studentForm.get('department')?.touched">
+    <small>Department is required.</small>
+  </div>
+
+  <br><br>
+
+  <button type="submit" [disabled]="studentForm.invalid">
+    Submit
+  </button>
+
+  &nbsp;
+
+  <button type="button" (click)="resetForm()">
+    Reset
+  </button>
+
+</form>
+
+<hr>
+
+<div *ngIf="submittedData">
+
+  <h3>Submitted Details</h3>
+
+  <p><strong>Name:</strong> {{ submittedData.name }}</p>
+
+  <p><strong>Email:</strong> {{ submittedData.email }}</p>
+
+  <p><strong>Department:</strong> {{ submittedData.department }}</p>
+
+</div>

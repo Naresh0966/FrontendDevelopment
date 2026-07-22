@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Web Development",
+    "code": "CS201",
+    "credits": 4,
+    "grade": "A"
+  },
+  {
+    "name": "Data Structures",
+    "code": "CS202",
+    "credits": 3,
+    "grade": "A+"
+  },
+  {
+    "name": "Operating Systems",
+    "code": "CS203",
+    "credits": 4,
+    "grade": "B+"
+  },
+  {
+    "name": "Database Management",
+    "code": "CS204",
+    "credits": 3,
+    "grade": "A"
+  },
+  {
+    "name": "Computer Networks",
+    "code": "CS205",
+    "credits": 4,
+    "grade": "A+"
+  }
+]

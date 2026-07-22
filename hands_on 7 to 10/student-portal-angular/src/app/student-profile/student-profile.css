@@ -1,0 +1,23 @@
+input {
+  width: 300px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+button {
+  padding: 8px 15px;
+  margin-right: 10px;
+}
+
+button:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}
+
+small {
+  color: red;
+}
+
+h3 {
+  color: darkblue;
+}
